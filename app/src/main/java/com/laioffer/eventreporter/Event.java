@@ -12,6 +12,14 @@ public class Event {
     private String imgUri;
     public Event() {}
 
+
+
+    private int CommentNumber;
+
+    public int getCommentNumber() {
+        return CommentNumber;
+    }
+
     public int getLike() {
         return like;
     }
