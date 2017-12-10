@@ -158,7 +158,6 @@ public class EventListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         holder.location.setText(locations[1] + "," + locations[2]);
         holder.description.setText(event.getDescription());
         holder.time.setText(Utils.timeTransformer(event.getTime()));
-
         holder.good_number.setText(String.valueOf(event.getLike()));
         holder.comment_number.setText(String.valueOf(event.getCommentNumber()));
 
