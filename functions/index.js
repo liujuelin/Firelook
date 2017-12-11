@@ -1,4 +1,3 @@
-
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
@@ -14,16 +13,19 @@ admin.initializeApp(functions.config().firebase);
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 // ...
-exports.sendNotification = functions.database.ref('/events')
+exports.sendNotification = functions.database.ref('/events/{pushId}')
        .onWrite(event => {
 
            // Grab the current value of what was written to the Realtime Database.
-           var eventSnapshot = event.data;
-
+           var eventSnapshot = event.data.val();
            var topic = "android";
            var payload = {
                data: {
-                
+                   id : eventSnapshot.id,
+                   title : eventSnapshot.title,
+                   description : eventSnapshot.description,
+                   address : eventSnapshot.address,
+                   imgUri : eventSnapshot.imgUri
                }
            };
 
